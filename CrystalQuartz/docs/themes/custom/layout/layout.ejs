@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121536364-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-121536364-1');
+    </script>
+
+    <meta charset="utf-8">
+  
+  <title><%= config.title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+
+  <%- css('css/style') %>
+  <%- css('css/highlightjs_theme') %>
+</head>
+<body>
+
+<aside id="main-sidebar">
+  <h1 id="main-logo">
+    <a href="https://github.com/guryanovev/CrystalQuartz" style="float: right;">
+      <img src="<%-url_for('/images/GitHub-Mark-Light-32px.png') %>" />
+    </a>
+
+    <a href="<%- url_for() %>" id="logo"><%= config.title %></a></h1>
+
+  <p id="project-info">Crystal Quartz Panel is a lightweight, completely pluggable module for displaying Quartz.NET scheduler jobs information.</p>
+
+  <section id="sidebar-badges">
+    <a href="https://travis-ci.org/guryanovev/CrystalQuartz"><img src="https://travis-ci.org/guryanovev/CrystalQuartz.svg?branch=master" /></a>
+    <a href="https://gitter.im/guryanovev/CrystalQuartz?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge">
+      <img src="https://badges.gitter.im/Join%20Chat.svg" />
+    </a>
+
+    
+  </section>
+
+  <nav id="main-navigation">
+      <% var categories = site.categories; %>
+      <% if (categories.length) { console.log(Object.getOwnPropertyNames(categories)); console.log(categories.sort.toString()); %>
+      <ul>
+          <% _.each(_.sortBy(categories.toArray(), function(x){ return (config.category_details[x.name] || {}).order || 0; }), function(category){
+
+            var isCategoryPage = is_category(),
+                isActiveCategory = isCategoryPage && is_current(category.path),
+                showCategoryPosts = isCategoryPage ?
+                  isActiveCategory :
+                  !!category.posts.findOne({ path: page.path }); %>
+
+          <li class="<%- (isActiveCategory ? 'active' : '') %>">
+              <a href="<%- url_for(category.path) %>"><%-  category.name %></a>
+
+              <% if (showCategoryPosts && category.posts) {%>
+              <ul>
+                  <% category.posts.each(function(post){ %>
+                  <li class="<%- is_current(post.path) ? 'active' : ''%>">
+                    <a href="<%- url_for(post.path) %>" class=""><%= post.title %></a>
+                  </li>
+                  <% })%>
+              </ul>
+              <% } %>
+
+          </li>
+          <% })%>
+      </ul>
+      <% } %>
+
+  </nav>
+</aside>
+
+<section id="main-content">
+  <%- body %>
+</section>
+
+</body>
+</html>

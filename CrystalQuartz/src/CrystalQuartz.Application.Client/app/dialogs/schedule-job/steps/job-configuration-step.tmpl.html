@@ -1,0 +1,40 @@
+﻿<h2 class="dialog-header">Job 配置</h2>
+<form class="cq-form form-horizontal">
+    <div class="form-group form-group-sm">
+        <label for="jobKind" class="col-sm-3 control-label">Job:</label>
+        <div class="col-sm-9">
+            <select id="jobKind" class="form-control js_jobKindSelect"></select>
+        </div>
+    </div>
+
+    <div class="cq-form-separator"></div>
+
+    <div class="form-group form-group-sm js_jobTypeExisting">
+        <label for="existingJob" class="col-sm-3 control-label">Existing Job<sup>*</sup>:</label>
+        <div class="col-sm-9 js_existingJobContainer">
+            <select id="existingJob" class="form-control js_existingJobSelect"></select>
+        </div>
+    </div>
+
+    <div class="js_jobTypeNew">
+        <div class="form-group form-group-sm">
+            <label for="newJobName" class="col-sm-3 control-label">Job Name:</label>
+            <div class="col-sm-9">
+                <input id="newJobName" class="form-control js_newJobNameInput" />
+            </div>
+        </div>
+
+        <div class="form-group form-group-sm">
+            <label for="newJobClass" class="col-sm-3 control-label">Job Class<sup>*</sup>:</label>
+            <div class="col-sm-9 js_newJobClassContainer">
+                <!--此处将下拉框改为输入框,便于添加新class-->
+                <input id="newDllName" class="form-control js_newDllName" placeholder="dll名称" style="width:60%" />
+                <input id="newNameSpace" class="form-control js_newNameSpace" placeholder="命名空间" style="width:60%" />
+                <input id="newClassName" class="form-control js_newClassName" placeholder="类名" style="width:60%" />
+
+
+                <!--<select id="newJobClass" class="form-control js_newJobClassSelect"></select>-->
+            </div>
+        </div>
+    </div>
+</form>
