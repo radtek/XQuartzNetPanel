@@ -6,8 +6,8 @@
 
 ## 准备
 1. Node.js
-2. .NET Framework **4.7.2** 和 **4.5.2** 和 **4.5** 和 **4** 
-3. ASP NET Core 2.2 
+2. .NET Framework **4.7.2** 和 **4.5.2** 和 **4.5** 和 **4**  
+3. (非必须)ASP NET Core 2.2 
 
 ## 简介
 1. 持久化到数据库(本项目里用的是SQLServer) **[表结构请点击这里](https://github.com/quartznet/quartznet/tree/master/database/tables)**;
