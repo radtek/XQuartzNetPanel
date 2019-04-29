@@ -20,6 +20,10 @@
 5. 调整一些CSS 样式
 6. 代码增加很多注释
 
+## 如何运行
+
+![运行过程图片](https://github.com/xxxxue/XQuartzNetPanel/blob/master/images/run.jpg)
+
 ## 结构图
 
 <details>
