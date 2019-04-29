@@ -27,7 +27,7 @@
 <pre><code>
 XQuartzNetPanel
 │
-├── CrystalQuartz
+├── CrystalQuartz : CrystalQuartz源码
 │    │
 │    ├── Core 
 │    │     │
@@ -42,7 +42,7 @@ XQuartzNetPanel
 │    │
 │    ├──Job  : job 类库文件夹
 │    │
-│    └──QuartzService  : 跑job 的服务
+│    └──QuartzService  : 跑job 的服务  (使用 Quartz 2.6.2.0 版本)
 │         └──quartz.config : QuartzNet 配置文件 (记得改成自己的数据库)
 │
 │
